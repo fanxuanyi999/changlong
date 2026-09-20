@@ -1,0 +1,57 @@
+[
+  {
+    "name": "safari",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/upload/83f2d19307b940d1/99870a94b4a3e016.jpg"
+  },
+  {
+    "name": "cable",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/upload/4b26f3741ce67587/af56df792008e445.jpg"
+  },
+  {
+    "name": "hotel",
+    "source": "https://www.chimelong.com/gz/pandahotel/",
+    "url": "https://cdn.chimelong.com/upload/2e87ef9678dd24c9/42449481923e5034.jpg"
+  },
+  {
+    "name": "lobby",
+    "source": "https://www.chimelong.com/gz/pandahotel/",
+    "url": "https://cdn.chimelong.com/upload/bef8962cc4c85dd4/93105fca3bc556e0.jpg"
+  },
+  {
+    "name": "circus",
+    "source": "https://www.chimelong.com/gz/circus/",
+    "url": "https://cdn.chimelong.com/upload/b4f3ef3ae4b57208/d2830c37eb735014.jpg"
+  },
+  {
+    "name": "restaurant",
+    "source": "https://www.chimelong.com/gz/safaripark/foodshopping/",
+    "url": "https://cdn.chimelong.com/upload/79724e6c623e92a9/5e621c8d7b347e96.jpg"
+  },
+  {
+    "name": "tiger",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/assets/images/pic-1.699a7d6.jpg"
+  },
+  {
+    "name": "giraffe",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/assets/images/pic-2.c1d3a00.jpg"
+  },
+  {
+    "name": "cablewide",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/assets/images/pic-3.b479860.jpg"
+  },
+  {
+    "name": "panda",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/assets/images/pic-5.046eb83.jpg"
+  },
+  {
+    "name": "koala",
+    "source": "https://www.chimelong.com/gz/safaripark/",
+    "url": "https://cdn.chimelong.com/assets/images/pic-6.1674ae3.jpg"
+  }
+]

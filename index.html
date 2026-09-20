@@ -8,7 +8,7 @@
 <section id="quick" role="tabpanel" aria-labelledby="quick-tab">
  <div class="poster">
   <div class="poster-head"><div class="ribbon">和家人一起，去看大大的世界</div><h1>出发<span>趣</span>长隆</h1><div class="poster-meta"><b>09.24—09.26</b><span>3天2晚 · 3大2小</span></div><div class="hero-sticker"><span data-icon="backpack"></span><b>LET’S<br>GO!</b></div></div>
-  <div class="photo-banner"><img src="assets/safari.webp" alt="长隆野生动物世界草原区的长颈鹿与斑马" width="1050" height="698"><span>动物世界 · 熊猫酒店 · 国际大马戏</span></div>
+  <button class="packing-shortcut poster-packing" data-packing-open="departure"><span data-icon="backpack"></span> 出发前，行李带齐了吗？ <span data-icon="arrow-right"></span></button><div class="photo-banner"><img src="assets/safari.webp" alt="长隆野生动物世界草原区的长颈鹿与斑马" width="1050" height="698"><span>动物世界 · 熊猫酒店 · 国际大马戏</span></div>
   <div class="journey" id="quick-days"></div>
   <div class="remember"><span class="paper-label">这几个时间，大家记住就好</span><div class="time-grid"><div><small>25日 · 开始回撤</small><b>15:30</b><p>回酒店，给晚上留体力</p></div><div><small>25日 · 马戏开演</small><b>20:00</b><p>18:45—19:00抵达场馆</p></div><div><small>26日 · 酒店出发</small><b>11:40</b><p>最迟12:00，去广州南</p></div></div></div>
   <div class="quick-note"><span data-icon="info-circle"></span><p>动物世界09:30开园；住客目标约09:00入园。缆车有暂停公告，开放且排队可控才乘坐。接驳班次与设施状态，出发前一天再确认。</p></div>
@@ -17,17 +17,22 @@
 <section id="detail" role="tabpanel" aria-labelledby="detail-tab" hidden>
  <div class="journal-cover"><img src="assets/safari.webp" alt="长隆野生动物世界草原区" width="1050" height="698"><div><span class="cover-tag">家庭旅行手册</span><h1>广州长隆，<br>和孩子慢慢玩。</h1><p>把喜欢的动物看两遍，把休息也排进行程。</p></div></div>
  <div class="journal-shell"><div class="trip-facts"><div><small>出行日期</small><b>9.24—9.26</b></div><div><small>同行人数</small><b>3大2小</b></div><div><small>旅行节奏</small><b>亲子慢游</b></div><div><small>核心体验</small><b>动物 + 马戏</b></div></div>
- <div class="journal-layout"><aside class="side-nav"><span>我们的三天</span><button data-day="0">01 · 抵达广州</button><button data-day="1">02 · 动物与马戏</button><button data-day="2">03 · 早茶与返程</button><a href="#handbook">随手查备忘</a><p>游览时间均为建议窗口，随孩子状态调整。</p></aside><div class="journal-main">
+ <button class="packing-shortcut journal-packing" data-packing-open="park"><span data-icon="backpack"></span> 酒店轻装入园 · 带什么 / 存什么 <span data-icon="arrow-right"></span></button><div class="journal-layout"><aside class="side-nav"><span>我们的三天</span><button data-day="0">01 · 抵达广州</button><button data-day="1">02 · 动物与马戏</button><button data-day="2">03 · 早茶与返程</button><a href="#handbook">随手查备忘</a><p>游览时间均为建议窗口，随孩子状态调整。</p></aside><div class="journal-main">
  <nav class="day-tabs" aria-label="每日行程" role="tablist"><button id="day-tab-0" role="tab" aria-controls="day-content" data-day="0" aria-selected="true">DAY 1<small>9月24日</small></button><button id="day-tab-1" role="tab" aria-controls="day-content" data-day="1" aria-selected="false">DAY 2<small>9月25日</small></button><button id="day-tab-2" role="tab" aria-controls="day-content" data-day="2" aria-selected="false">DAY 3<small>9月26日</small></button></nav>
  <article id="day-content" role="tabpanel" aria-labelledby="day-tab-0"></article>
  <section id="handbook"><h2><mark>随手查</mark>旅行备忘</h2><p class="muted">用到时点开，行程里的问题在这里找。</p><div id="note-groups"></div></section>
  </div></div></div>
 </section>
-<section class="travel-tools"><div><span data-icon="download"></span><h2>把攻略装进口袋</h2><p>保存一份带照片的离线版，路上没有网络也能看。</p></div><a class="download-button" href="offline.html" download="广州长隆亲子行_图文离线版.html">保存离线版 <span data-icon="arrow-up-right"></span></a><button class="checklist-button">行前核对清单 <span data-icon="checklist"></span></button></section>
+<section class="travel-tools"><div><span data-icon="download"></span><h2>把攻略装进口袋</h2><p>保存一份带照片的离线版，路上没有网络也能看。</p></div><a class="download-button" href="offline.html" download="广州长隆亲子行_图文离线版.html">保存离线版 <span data-icon="arrow-up-right"></span></a><button class="packing-button" data-packing-open="departure">行李准备清单 <span data-icon="backpack"></span></button><button class="checklist-button">行前核对清单 <span data-icon="checklist"></span></button></section>
 </main>
 <footer><p>行程资料核对于 2026.09.20 · 以本人订单、最新公告和现场指引为准</p><details><summary>图片来源与使用说明</summary><p>本页配图来自长隆官方网站，用于介绍相应目的地，并非本次旅行实拍；照片不代表设施当日开放状态。图片版权归原权利人所有。本攻略为家庭出行整理，与景区无隶属关系。</p><div id="credits"></div><p>界面图标：Tabler Icons（MIT）。<a href="https://github.com/tabler/tabler-icons" target="_blank" rel="noopener">查看图标来源</a></p></details><p>车次编号、返程终到站与到达时间待按12306订单补齐。</p></footer>
 <dialog id="photo-dialog"><button class="close-dialog" aria-label="关闭照片" data-icon="x"></button><img alt=""><p></p></dialog>
 <dialog id="check-dialog"><button class="close-dialog" aria-label="关闭清单" data-icon="x"></button><h2>出发前，再看一眼</h2><p class="muted">大家各自保存一份，现场少翻订单。</p><div id="check-items"></div><p class="check-progress" aria-live="polite"></p><small>勾选仅保存在当前设备；文件预览或隐私模式可能不保留。</small></dialog>
+<dialog id="packing-dialog" aria-labelledby="packing-title">
+<div class="packing-header"><button class="close-dialog" aria-label="关闭行李清单" data-icon="x"></button><h2 id="packing-title">行李准备清单</h2><p>带上需要的，把轻松也装进行李。</p>
+<div class="packing-tabs" role="tablist" aria-label="选择行李清单"><button id="packing-tab-departure" role="tab" aria-selected="true" aria-controls="packing-departure" data-packing-tab="departure">厦门出发前</button><button id="packing-tab-park" role="tab" aria-selected="false" aria-controls="packing-park" data-packing-tab="park" tabindex="-1">酒店轻装入园</button></div>
+<div class="packing-status"><span id="packing-progress" aria-live="polite"></span><progress id="packing-meter" aria-label="当前行李清单核对进度" value="0" max="14"></progress></div></div>
+<div class="packing-body"><section id="packing-departure" role="tabpanel" aria-labelledby="packing-tab-departure"></section><section id="packing-park" role="tabpanel" aria-labelledby="packing-tab-park" hidden></section><p class="packing-footnote">选带项按自家需要取舍，不需要的确认后也可勾选。两份清单分别保存，勾选仅保留在当前浏览器；不会同步给同行家人，文件预览或隐私模式可能不保留。</p></div></dialog>
 <div id="toast" role="status" aria-live="polite"></div><noscript><p>此图文版需要启用JavaScript显示时间轴。你也可以使用已经提供的PDF版攻略。</p></noscript>
-<script src="icons.js"></script><script src="itinerary.js"></script><script src="app.js"></script>
+<script src="icons.js"></script><script src="itinerary.js"></script><script src="app.js"></script><script src="packing.js"></script>
 </body></html>

@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "长隆同行记 · 家庭旅行手册",
+  "short_name": "长隆同行记",
+  "description": "三日旅行攻略与Day2园区互动路书",
+  "lang": "zh-CN",
+  "start_url": "./index.html#day2-map",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f5e7",
+  "theme_color": "#256355",
+  "icons": [
+    {"src":"assets/app-icon-192.png","sizes":"192x192","type":"image/png","purpose":"any"},
+    {"src":"assets/app-icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}

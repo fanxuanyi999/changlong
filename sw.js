@@ -1,8 +1,8 @@
 /* Scoped to the existing GitHub Pages /changlong/ site; no CDN dependencies. */
-const VERSION='day2-map-v1-20260922-2';
+const VERSION='day2-map-art-v2-20260922-1';
 const PREFIX='changlong-'+self.registration.scope;
 const CACHE=PREFIX+VERSION;
-const FILES=['./','./index.html','./style.css','./icons.js','./itinerary.js','./app.js','./packing.js','./park-map-data.js','./park-map.js','./park-map.css','./pwa.js','./manifest.webmanifest','./assets/park-illustration.svg','./assets/app-icon-192.png','./assets/app-icon-512.png','./assets/safari.webp','./assets/tiger.webp','./assets/restaurant.webp','./assets/panda.webp','./assets/lobby.webp','./assets/koala.webp','./assets/hotel.webp','./assets/giraffe.webp','./assets/circus.webp','./assets/cable.webp','./assets/cablewide.webp','./offline.html'];
+const FILES=['./','./index.html','./style.css','./icons.js','./itinerary.js','./app.js','./packing.js','./park-map-data.js','./park-map.js','./park-map.css','./park-map-visual.css','./pwa.js','./manifest.webmanifest','./assets/park-illustration.svg','./assets/app-icon-192.png','./assets/app-icon-512.png','./assets/safari.webp','./assets/tiger.webp','./assets/restaurant.webp','./assets/panda.webp','./assets/lobby.webp','./assets/koala.webp','./assets/hotel.webp','./assets/giraffe.webp','./assets/circus.webp','./assets/cable.webp','./assets/cablewide.webp','./offline.html'];
 const urls=FILES.map(f=>new URL(f,self.registration.scope).href);
 async function precache(){const cache=await caches.open(CACHE);await cache.addAll(urls);}
 self.addEventListener('install',event=>event.waitUntil(precache().then(()=>self.skipWaiting())));

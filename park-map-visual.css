@@ -1,0 +1,66 @@
+/* Independent watercolor base beneath the coordinate-locked interactive SVG.
+   All selectors are scoped to day-two-map. No functional layer is replaced. */
+day-two-map{--pm-orange:#d96a42;--pm-ink:#314d43;--pm-green:#42735e;--pm-blue:#377bd0}
+day-two-map .pm-frame{border-color:#dedacb;border-radius:21px;background:#fffdf7;box-shadow:0 8px 26px #55624a09}
+day-two-map .pm-heading{padding:15px 19px 12px;background:#fffdf7}
+day-two-map .pm-heading h3{font-size:21px;letter-spacing:-.4px;font-weight:800}
+day-two-map .pm-heading p{font-size:11px;color:#7c8371}
+day-two-map .pm-heading>span{background:#f4edda;color:#826241;border-radius:3px}
+day-two-map .pm-status{background:#f0f3e7;border-color:#e0e5d4;padding:7px 16px}
+day-two-map .pm-status strong{font-size:13px}
+day-two-map .pm-stage{background:#f4f2e4;background-image:radial-gradient(#b9ae902b .6px,transparent .6px);background-size:5px 7px}
+day-two-map .pm-artwork,day-two-map .pm-paths,day-two-map .pm-sign,day-two-map .pm-node-halo{pointer-events:none}
+day-two-map .pm-artwork{opacity:1}
+day-two-map .pm-paths>g:nth-child(1){stroke:#fff8e8;stroke-width:14;opacity:.97}
+day-two-map .pm-paths>g:nth-child(2)[stroke="#c5532a"]{stroke:var(--pm-orange);stroke-width:7}
+day-two-map .pm-paths>g:nth-child(2)[stroke="#c9cec2"]{stroke:#acb6a6;stroke-width:5;opacity:.66}
+day-two-map .pm-paths>[stroke="#c5532a"]{stroke:#b94c29;stroke-width:4}
+day-two-map .pm-paths>g[stroke="#1754c7"]{stroke:var(--pm-blue);stroke-width:7}
+day-two-map .pm-paths>[stroke="#1754c7"]{stroke:var(--pm-blue)}
+day-two-map .pm-paths>path[stroke-dasharray]{stroke-width:4;stroke-dasharray:7 8}
+day-two-map .pm-node-halo{fill:none;stroke:none}
+day-two-map .pm-pin{fill:#fffcf0;stroke:#c9714f;stroke-width:3;filter:drop-shadow(0 2px 1px #71563b29)}
+day-two-map .pm-number{fill:#a55431;font-family:Georgia,serif;font-size:21px;font-weight:700}
+day-two-map .pm-sign{fill:#fff8e7;stroke:#c6b18b;stroke-width:1.2;filter:drop-shadow(1px 2px 0 #71563b26)}
+day-two-map .pm-label{font-family:'KaiTi','STKaiti','Microsoft YaHei',sans-serif;font-size:18px;fill:#3d5949;stroke:#fff8e7;stroke-width:2;font-weight:750}
+day-two-map .pm-time{fill:#8a7d64;stroke:#fff8e7;stroke-width:2;font-size:12px}
+day-two-map .pm-node.is-complete .pm-pin{fill:#edece3;stroke:#a4a897}
+day-two-map .pm-node.is-complete .pm-number{fill:#838a77}
+day-two-map .pm-node.is-complete .pm-sign{fill:#f0eee4;stroke:#c7c8b8}
+day-two-map .pm-node.is-complete .pm-label{fill:#828877;stroke:#f0eee4}
+day-two-map .pm-node.is-current .pm-pin{fill:#d96a42;stroke:#fffcf0;stroke-width:4}
+day-two-map .pm-node.is-current .pm-number{fill:white}
+day-two-map .pm-node.is-current .pm-node-halo{stroke:#dd9367;stroke-width:3;opacity:.55}
+day-two-map .pm-node.is-next .pm-pin{stroke:#62905d;stroke-width:4}
+day-two-map .pm-node.is-target .pm-pin,day-two-map .pm-node.selected .pm-pin{fill:#377bd0;stroke:white;stroke-width:4}
+day-two-map .pm-node.is-target .pm-number,day-two-map .pm-node.selected .pm-number{fill:white}
+day-two-map .pm-facility circle{stroke:#fffdf6;stroke-width:4;filter:drop-shadow(0 2px 2px #354d402a)}
+day-two-map .pm-facility.is-target circle{stroke:#f8b854;stroke-width:6}
+day-two-map .pm-you>g>circle:first-child{stroke:#377bd0;stroke-dasharray:none;opacity:.45}
+day-two-map .pm-you>g>circle:nth-child(2){fill:#377bd0;filter:drop-shadow(0 0 4px #377bd060)}
+day-two-map .pm-you text{fill:#2c67aa;stroke:#fffdf0;font-size:14px}
+day-two-map[data-map-detail=overview] .pm-label,day-two-map[data-map-detail=overview] .pm-time,day-two-map[data-map-detail=overview] .pm-sign{display:none}
+day-two-map[data-map-detail=overview] .pm-pin{r:24;stroke-width:4}
+day-two-map[data-map-detail=overview] .pm-number{font-size:25px}
+day-two-map[data-map-detail=overview] .pm-you text{display:none}
+day-two-map[data-map-detail=area] .pm-time,day-two-map[data-map-detail=area] .pm-label-extra{display:none}
+day-two-map[data-map-detail=area] .pm-sign{height:31px;y:-24px;width:var(--pm-sign-short-width)}
+day-two-map .pm-map-key{background:#fffdf0eb;border:1px solid #e4d6b9;border-radius:4px;box-shadow:1px 3px 0 #806b4212;color:#746044;font-size:10px;padding:6px 9px}
+day-two-map .pm-map-key i{background:var(--pm-orange);height:4px;border-radius:4px}
+day-two-map .pm-zoom button{background:#fffdf3;border-color:#d8d0b9;color:#586846;border-radius:11px;box-shadow:1px 3px 0 #806b4212}
+day-two-map .pm-hint{background:#fffdf0e8;color:#79765f;font-size:9px}
+day-two-map .pm-layers{background:#fffdf8;border-color:#e4dece}
+day-two-map .pm-layers button{background:transparent;color:#66755c}
+day-two-map .pm-layers button[aria-pressed=true]{background:#e9eed9;color:#446345}
+day-two-map .pm-info{background:#f6f5e9;color:#788069}
+day-two-map .pm-sheet{background:#fffef8;max-height:40%;border:1px solid #e6decb;border-bottom:0;box-shadow:0 -5px 24px #3e513621}
+day-two-map .pm-sheet::before{background:#cfc7af;margin-bottom:9px}
+day-two-map .pm-sheet h4{font-size:20px;color:#3f5948}
+day-two-map .pm-sheet .pm-overline{color:#ba6747}
+day-two-map .pm-sheet-close{background:#f2eedf;color:#716e5c}
+day-two-map .pm-next{background:#f1f2e4}
+day-two-map .pm-actions .pm-primary{background:#54765b;border-color:#54765b}
+day-two-map .pm-navigation-overlay,day-two-map .pm-illustration-base{pointer-events:none}
+day-two-map .pm-paths>g:nth-child(2)[stroke="#c5532a"] .pm-route-complete{stroke:#a8ad95;opacity:.55}
+@media(max-width:600px){day-two-map .pm-heading{padding:13px 15px 10px}day-two-map .pm-heading h3{font-size:19px}day-two-map .pm-stage{height:48dvh;min-height:330px;max-height:440px}day-two-map .pm-status{padding:6px 12px}day-two-map .pm-sheet{max-height:40%;padding:11px 15px 15px}day-two-map .pm-sheet h4{font-size:19px}}
+@media(prefers-reduced-motion:no-preference){day-two-map .pm-node.is-current .pm-node-halo{animation:pm-node-breathe 2.8s ease-in-out infinite}day-two-map .pm-you>g>circle:nth-child(2){animation:pm-you-breathe 2.6s ease-in-out infinite}@keyframes pm-node-breathe{0%,100%{stroke-opacity:.3;stroke-width:2}50%{stroke-opacity:.85;stroke-width:5}}@keyframes pm-you-breathe{0%,100%{fill-opacity:1;stroke-width:3}50%{fill-opacity:.65;stroke-width:5}}}

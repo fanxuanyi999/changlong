@@ -1,8 +1,8 @@
 /* Scoped to the existing GitHub Pages /changlong/ site; no CDN dependencies. */
-const VERSION='day2-map-art-v2-20260922-1';
+const VERSION='day2-map-fast-v3-20260923-1';
 const PREFIX='changlong-'+self.registration.scope;
 const CACHE=PREFIX+VERSION;
-const FILES=['./','./index.html','./style.css','./icons.js','./itinerary.js','./app.js','./packing.js','./park-map-data.js','./park-map.js','./park-map.css','./park-map-visual.css','./pwa.js','./manifest.webmanifest','./assets/park-illustration.svg','./assets/app-icon-192.png','./assets/app-icon-512.png','./assets/safari.webp','./assets/tiger.webp','./assets/restaurant.webp','./assets/panda.webp','./assets/lobby.webp','./assets/koala.webp','./assets/hotel.webp','./assets/giraffe.webp','./assets/circus.webp','./assets/cable.webp','./assets/cablewide.webp','./offline.html'];
+const FILES=['./','./index.html','./style.css','./icons.js','./itinerary.js','./app.js','./packing.js','./park-map-data.js','./park-map.js','./park-map.css','./park-map-visual.css','./pwa.js','./manifest.webmanifest','./assets/park-painted-v3.webp','./assets/app-icon-192.png','./assets/app-icon-512.png','./assets/safari.webp','./assets/tiger.webp','./assets/restaurant.webp','./assets/panda.webp','./assets/lobby.webp','./assets/koala.webp','./assets/hotel.webp','./assets/giraffe.webp','./assets/circus.webp','./assets/cable.webp','./assets/cablewide.webp','./offline.html'];
 const urls=FILES.map(f=>new URL(f,self.registration.scope).href);
 async function precache(){const cache=await caches.open(CACHE);await cache.addAll(urls);}
 self.addEventListener('install',event=>event.waitUntil(precache().then(()=>self.skipWaiting())));
@@ -15,6 +15,9 @@ self.addEventListener('fetch',event=>{
  if(!known&&req.mode!=='navigate')return;
  event.respondWith((async()=>{
    const cache=await caches.open(CACHE);
+   // This URL changes whenever the artwork changes: a cached copy is final.
+   // Never wait for an unreliable network before displaying a saved map.
+   if(url.pathname.endsWith('/assets/park-painted-v3.webp')){const art=await cache.match(req,{ignoreSearch:true});if(art)return art;}
    try{const fresh=await fetch(req);if(fresh.ok){try{await cache.put(req,fresh.clone());}catch{/* A full cache must not break a successful online response. */}return fresh;}const saved=await cache.match(req,{ignoreSearch:true});return saved||fresh;}
    catch{const saved=await cache.match(req,{ignoreSearch:true});if(saved)return saved;if(req.mode==='navigate')return (await cache.match(new URL('index.html',self.registration.scope).href))||Response.error();return Response.error();}
  })());

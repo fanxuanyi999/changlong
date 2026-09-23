@@ -7,13 +7,24 @@ const D=require('../park-map-data.js');
 function mapHarness(){
  let Element;
  vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../park-map.js'),'utf8'),{window:{PARK_MAP:D},location:{hash:''},HTMLElement:class{},customElements:{define(name,cls){Element=cls}}});
- const map=new Element(),events={},attrs={};map.dataset={};map.pointers=new Map();map.view={x:0,y:0,w:1200,h:900};map.baseWidth=1200;
- map.svg={addEventListener:(name,fn)=>events[name]=fn,getBoundingClientRect:()=>({left:0,top:0,width:600,height:450}),setAttribute:(key,value)=>attrs[key]=value,setPointerCapture:()=>{}};
+ const map=new Element(),events={},attrs={},options={};map.dataset={};map.pointers=new Map();map.view={x:0,y:0,w:1200,h:900};map.baseWidth=1200;
+ map.svg={addEventListener:(name,fn,opts)=>{events[name]=fn;options[name]=opts;},getBoundingClientRect:()=>({left:0,top:0,width:600,height:450}),setAttribute:(key,value)=>attrs[key]=value,setPointerCapture:()=>{}};
  map.mapPoint=(x,y)=>({x:map.view.x+x*map.view.w/600,y:map.view.y+y*map.view.h/450});
  map.setupGestures();
  const event=(x,y,id=1)=>({clientX:x,clientY:y,pointerId:id,target:{closest:()=>null},preventDefault(){}});
- return {map,events,attrs,event};
+ return {map,events,attrs,event,options};
 }
+
+test('map-only native pinch guards cancel multi-touch and Safari gestures, not taps',()=>{
+ const {map,events,options,event}=mapHarness();let prevented=0;
+ const touch=count=>({touches:Array(count).fill({}),cancelable:true,preventDefault(){prevented++;}});
+ events.touchstart(touch(1));events.touchmove(touch(1));assert.equal(prevented,0);
+ events.touchstart(touch(2));events.touchmove(touch(2));assert.equal(prevented,2);
+ for(const name of ['gesturestart','gesturechange','gestureend']){events[name](touch(2));assert.equal(options[name].passive,false);}
+ assert.equal(prevented,5);assert.equal(options.touchstart.passive,false);assert.equal(options.touchmove.passive,false);
+ events.touchmove({...touch(2),cancelable:false});assert.equal(prevented,5);
+ events.pointerdown(event(100,100,1));events.pointerdown(event(200,100,2));events.pointermove(event(300,100,2));assert.equal(map.view.w,600,'custom pinch still works');
+});
 test('shared viewport transforms all three layers; zoom changes label detail without modifying POIs',()=>{
  const {map,attrs}=mapHarness(),before=JSON.stringify(D);
  map.applyView();assert.equal(map.dataset.mapDetail,'area');

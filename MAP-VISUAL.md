@@ -1,5 +1,15 @@
 # Day2 地图 · 手绘三层版
 
+## 2026-09-23 性能与触摸修复
+
+当前运行底图已改为直接加载 `assets/park-painted-v3.webp`，1448 × 1086 分辨率不变。文件由 SVG 内嵌版 781,753 字节降为 279,858 字节（约减小 64%）；这是资源大小对比，并非实测下载时间提升比例。新增高优先级预加载，避免等待 Day2 组件挂载才开始请求。版本化底图在 PWA 中缓存优先，已保存时不等待网络；其他代码仍保持联网更新。旧 SVG 留作上一版资料，不再被页面或离线清单请求。
+
+SVG 外新增 `.pm-surface` HTML 触摸边界，`touch-action:none` 仅限制地图内部；Bottom Sheet 为同级元素，可独立滚动。SVG 增加非被动的双指 Touch Event 及 Safari Gesture Event 默认行为拦截，仍由原 Pointer Event 算法负责地图缩放。未添加全页 `user-scalable=no` 或全局触摸拦截。
+
+11 项自动测试通过，新增地图双指默认动作拦截、单指点击不受影响、自定义缩放仍运行、底图联网时仍命中缓存、代码继续联网更新的验证。浏览器确认三层、12 个节点、触摸边界及面板父级不变。iPhone / 微信浏览器真实设备的网页缩放联动尚未实机验证。
+
+触摸行为依据：[MDN touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/touch-action)、[Safari gesturestart](https://developer.mozilla.org/en-US/docs/Web/API/Element/gesturestart_event)。以下为上一版结构与艺术制作记录。
+
 本次在已有 Day2 组件上迭代，沿用主站入口 `index.html#day2-map`，无独立 demo、无新增地图 SDK。
 
 ## 审查与拆层

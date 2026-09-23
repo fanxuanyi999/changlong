@@ -31,12 +31,20 @@ function worker(){
 }
 test('PWA caches every local dependency including the registration script and works at /changlong/',async()=>{
  const w=worker();await w.event('install');w.stores.set('other-site-cache',new Map());await w.event('activate');assert.ok(w.stores.has('other-site-cache'));w.setOffline();
- for(const file of ['index.html','park-map.js','park-map-data.js','park-map.css','pwa.js','assets/park-illustration.svg']){
+ for(const file of ['index.html','park-map.js','park-map-data.js','park-map.css','pwa.js','assets/park-painted-v3.webp']){
   const res=await w.event('fetch',{request:{url:w.scope+file,method:'GET',mode:file.endsWith('html')?'navigate':'cors'}});assert.ok(res.ok);assert.equal(await res.text(),file);
  }
  const fallback=await w.event('fetch',{request:{url:w.scope+'unknown-page',method:'GET',mode:'navigate'}});assert.equal(await fallback.text(),'index.html');
  assert.equal(await w.event('fetch',{request:{url:'https://thirdparty.test/map.js',method:'GET',mode:'cors'}}),undefined);
  assert.equal(await w.event('fetch',{request:{url:w.scope+'missing.js',method:'GET',mode:'cors'}}),undefined);
+});
+
+test('versioned artwork loads from cache even while the network is available',async()=>{
+ const w=worker();await w.event('install');
+ const art=await w.event('fetch',{request:{url:w.scope+'assets/park-painted-v3.webp',method:'GET',mode:'cors'}});
+ assert.equal(await art.text(),'assets/park-painted-v3.webp','must not wait for network');
+ const code=await w.event('fetch',{request:{url:w.scope+'park-map.js',method:'GET',mode:'cors'}});
+ assert.equal(await code.text(),'network','application updates still use network first');
 });
 test('GPS success requests node calibration; denial, unavailable and timeout leave manual location usable',()=>{
  for(const result of ['success',1,2,3]){
